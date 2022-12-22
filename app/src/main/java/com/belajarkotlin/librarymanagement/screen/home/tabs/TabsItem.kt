@@ -1,11 +1,11 @@
 package com.belajarkotlin.librarymanagement.screen.home.tabs
 
 import androidx.compose.runtime.Composable
-import com.belajarkotlin.librarymanagement.R
+import androidx.navigation.compose.rememberNavController
 
 typealias ComposableFun = @Composable () -> Unit
 
 sealed class TabsItem(var title: String, var screen: ComposableFun) {
-    object Tabs1 : TabsItem("Belum Dikembalikan", { Tabs1() })
-    object Tabs2 : TabsItem("Sudah Dikembalikan", { Tabs2() })
+    object Tabs1 : TabsItem("Peminjaman", { Tabs1(navController = rememberNavController()) })
+    object Tabs2 : TabsItem("Pengembalian", { Tabs2(navController = rememberNavController()) })
 }

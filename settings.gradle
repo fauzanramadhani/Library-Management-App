@@ -3,6 +3,9 @@ pluginManagement {
         gradlePluginPortal()
         google()
         mavenCentral()
+        // add this
+        maven {url 'https://jitpack.io'}
+        maven {url 'https://dl.bintray.com/drummer-aidan/maven/'}
     }
 }
 dependencyResolutionManagement {
@@ -10,6 +13,9 @@ dependencyResolutionManagement {
     repositories {
         google()
         mavenCentral()
+        // add this
+        maven {url 'https://jitpack.io'}
+        maven {url 'https://dl.bintray.com/drummer-aidan/maven/'}
     }
 }
 rootProject.name = "Library Management"

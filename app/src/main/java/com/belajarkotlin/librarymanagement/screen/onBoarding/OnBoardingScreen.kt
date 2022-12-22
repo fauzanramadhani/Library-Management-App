@@ -25,8 +25,8 @@ fun OnBoardingScreen(navController: NavHostController) {
             painter = painterResource(id = R.drawable.books),
             contentDescription = null,
             modifier = Modifier
-                .width(127.dp)
-                .height(127.dp)
+                .width(90.dp)
+                .height(90.dp)
         )
     }
     Handler().postDelayed({
