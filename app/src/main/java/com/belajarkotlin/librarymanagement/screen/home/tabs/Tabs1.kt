@@ -71,7 +71,7 @@ fun Tabs1(
                     Text(
                         text = "Refresh",
                         fontFamily = Lexend,
-                        fontWeight = FontWeight.Bold,
+                        fontWeight = FontWeight.ExtraBold,
                         modifier = Modifier
                             .clickableSingle {
                                 refreshing = true

@@ -19,9 +19,9 @@ class TabsViewModel : ViewModel() {
     val response: MutableState<TabState1> = mutableStateOf(TabState1.Empty)
     lateinit var myAPI: INodeJS
     var compositeDisposable = CompositeDisposable()
-    private val retrofit: Retrofit = RetrofitClient.instance
 
     fun pullData() {
+        val retrofit: Retrofit = RetrofitClient.instance
         response.value = TabState1.Loading
         myAPI = retrofit.create(INodeJS::class.java)
         compositeDisposable.add(myAPI.readData()
@@ -30,7 +30,6 @@ class TabsViewModel : ViewModel() {
             .doOnError { e ->
                 e.localizedMessage?.let { message ->
                     response.value = TabState1.Failure(message)
-                    Log.e("Error", message)
                 }
             }
             .onErrorReturn { e ->
@@ -47,9 +46,9 @@ class TabsViewModel : ViewModel() {
                         val getNama = objectValue.getString("nama")
                         val getNim = objectValue.getInt("nim")
                         val getBuku = objectValue.getString("buku")
-                        val getTglPeminjaman = objectValue.getInt("tgl_peminjaman")
-                        val getTglPengembalian = objectValue.getInt("tgl_pengembalian")
-                        val getDikembalikan = objectValue.getInt("dikembalikan")
+                        val getTglPeminjaman = objectValue.getLong("tgl_peminjaman")
+                        val getTglPengembalian = objectValue.getLong("tgl_pengembalian")
+                        val getDikembalikan = objectValue.getLong("dikembalikan")
                         val getStatus = objectValue.getInt("status")
 
                         dataPeminjaman.add(
@@ -66,7 +65,7 @@ class TabsViewModel : ViewModel() {
                         )
                     }
                     dataPeminjaman.sortByDescending {
-                        it.tglPeminjaman
+                        it.id
                     }
                     response.value = TabState1.Success(dataPeminjaman)
                 }

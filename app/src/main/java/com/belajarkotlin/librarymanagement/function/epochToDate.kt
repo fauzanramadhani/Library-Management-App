@@ -9,7 +9,7 @@ fun epochToDate(pattern: String, epochDate: Long?): String {
     val sdf = SimpleDateFormat(pattern)
     val calendar = Calendar.getInstance()
     if (epochDate != null) {
-        val epochDateMills = "${epochDate}000"
+        val epochDateMills = "$epochDate"
         calendar.timeInMillis = epochDateMills.toLong()
     }
     return sdf.format(calendar.time)

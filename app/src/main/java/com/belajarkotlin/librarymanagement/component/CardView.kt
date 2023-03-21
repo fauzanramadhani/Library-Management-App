@@ -1,6 +1,7 @@
 package com.belajarkotlin.librarymanagement.component
 
 
+import android.util.Log
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Card
 import androidx.compose.material.Text
@@ -24,9 +25,9 @@ fun TabsCardView(
     nama: String,
     nim: Int,
     buku: String,
-    tglPeminjaman: Int,
-    tglPengembalian: Int,
-    dikembalikan: Int,
+    tglPeminjaman: Long,
+    tglPengembalian: Long,
+    dikembalikan: Long,
     status: Int,
     onClickPressed: () -> Unit = {}
 ) {
@@ -135,7 +136,7 @@ fun TabsCardView(
                         fontWeight = FontWeight.SemiBold,
                     )
                     Text(
-                        text = epochToDate("HH:mm - dd/MM/yyyy ", tglPeminjaman.toLong()),
+                        text = epochToDate("dd-MM-yyyy", tglPeminjaman.toLong()),
                         fontSize = 13.sp,
                         fontFamily = Lexend,
                         fontWeight = FontWeight.Light
@@ -153,7 +154,7 @@ fun TabsCardView(
                         fontWeight = FontWeight.SemiBold,
                     )
                     Text(
-                        text = epochToDate("HH:mm - dd/MM/yyyy ", tglPeminjaman.toLong()),
+                        text = epochToDate("dd-MM-yyyy", tglPengembalian.toLong()),
                         fontSize = 13.sp,
                         fontFamily = Lexend,
                         fontWeight = FontWeight.Light

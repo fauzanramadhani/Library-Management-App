@@ -1,4 +1,4 @@
-package com.belajarkotlin.librarymanagement.screen
+package com.belajarkotlin.librarymanagement.screen.onBoarding
 
 import android.os.Handler
 import androidx.compose.foundation.Image
